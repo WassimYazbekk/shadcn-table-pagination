@@ -1,4 +1,3 @@
-import { User } from "@/types/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
 
@@ -12,8 +11,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
+import { IUser } from "@/views/dashboard";
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<IUser>[] = [
   {
     accessorKey: "id",
     header: "ID",
@@ -39,8 +39,8 @@ export const columns: ColumnDef<User>[] = [
     header: "Last Name",
   },
   {
-    accessorKey: "phone",
-    header: "Phone",
+    accessorKey: "phoneNumber",
+    header: "Phone Number",
   },
   {
     accessorKey: "access",

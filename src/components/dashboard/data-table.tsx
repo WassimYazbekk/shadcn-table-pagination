@@ -34,7 +34,6 @@ import {
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,
 } from "@radix-ui/react-icons";
-import { DataTableProps } from "@/types/props";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -42,6 +41,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useNavigate } from "react-router-dom";
+
+export interface DataTableProps<TData, TValue> {
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+  pagesCount: number;
+  rowsPerPage: 10 | 20 | 30 | 40 | 50;
+  currentPage: number;
+  hiddenColumns?: VisibilityState;
+  title: string;
+  createRowLink?: string;
+  totalRows: number;
+  query: string;
+  setQuery: Dispatch<SetStateAction<string>>;
+  setPage: Dispatch<SetStateAction<number>>;
+  setRowsPerPage: Dispatch<SetStateAction<number>>;
+}
 
 export function DataTable<TData, TValue>({
   columns,
